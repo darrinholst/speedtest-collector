@@ -4,9 +4,6 @@ const { google } = require("googleapis");
 const moment = require("moment");
 require("moment-timezone");
 
-const Mb = 1024 * 1024;
-const port = process.env.PORT || 3000;
-
 const app = express();
 app.use(bodyParser.json());
 
@@ -37,8 +34,8 @@ app.post("/collect", async (req, res) => {
                 .tz("America/Chicago")
                 .format("YYYY-MM-DD HH:mm:ss"),
               ping,
-              download / Mb,
-              upload / Mb,
+              download / 1e6,
+              upload / 1e6,
               raw,
             ],
           ],
@@ -51,4 +48,4 @@ app.post("/collect", async (req, res) => {
   res.status(204).end();
 });
 
-app.listen(port, () => console.log(`listening at http://localhost:${port}`));
+app.listen(process.env.PORT || 3000);
