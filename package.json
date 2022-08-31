@@ -12,6 +12,6 @@
     "express": "^4.17.1",
     "googleapis": "^55.0.0",
     "moment": "^2.27.0",
-    "moment-timezone": "^0.5.31"
+    "moment-timezone": "^0.5.35"
   }
 }
